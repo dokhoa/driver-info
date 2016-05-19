@@ -1,29 +1,40 @@
 import React from "react";
 import { render } from "react-dom";
 import _YourComponent from "./components/_YourComponent/_YourComponent.jsx";
-import Authenticate from "./components/Authenticate/authenticate.jsx";
+import MobileInput from "./components/MobileInput/mobileinput.jsx";
+import TokenValidation from "./components/TokenValidation/tokenvalidation.jsx";
 import Header from "./components/header/header.jsx";
 import layout from "./components/layout.css";
 import DriverForm from "./components/forms/DriverForm.jsx";
-
+import { Router, Route, IndexRoute, hashHistory } from "react-router";
 import Actions from "./core/actions";
 
 class App extends React.Component {
   constructor(props) {
     super();    
   }  
+  
   render() {
     return (
 
       <div className={layout.wrapper}>
       <Header />
-        <Authenticate />
-        
+      
+        {this.props.children}
         
       </div>
+      
     );
   }
 }
 export default App;
 
-render(<App/>, document.getElementById("app"));
+render(
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={MobileInput}></IndexRoute>
+      <Route path="verify" component={TokenValidation}></Route>
+    </Route>
+    
+
+  </Router>, document.getElementById("app"));
