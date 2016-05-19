@@ -1,6 +1,7 @@
 @import url('../constants.css');
 
 .header {
+    width: 100%;
     position: relative;
     margin:0;
     background-color: #ee3124;
@@ -44,4 +45,13 @@
 
 .header-right li:last-child {
     border-right: 0;
+}
+.header h1{
+    float:left;
+    padding:3px 31px 0 0;
+}
+.eroadLogoLoginImage{
+    width: 50px;
+    padding: 11px 0px 0px 2px;
+    margin-left:11px;
 }

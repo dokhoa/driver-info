@@ -18,9 +18,9 @@ class Header extends React.Component {
   render() {
     return (
       <div className={styles.header}>
-          <h1><a href="https://devdepot.eroad.com/">
-                  <img src="header_logo.png" id="eroadLogoLoginImage" width="50" alt="EROAD"></img>
-              </a></h1>
+          <a href="https://devdepot.eroad.com/">
+                  <img src="header_logo.png" className={styles.eroadLogoLoginImage} width="50" alt="EROAD"></img>
+              </a>
       </div>
     );
   }

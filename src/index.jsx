@@ -12,6 +12,7 @@ class App extends React.Component {
   }
   render() {
     return (
+
       <div className={layout.wrapper}>
         <Header />
         <Authenticate />

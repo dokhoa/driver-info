@@ -2,9 +2,10 @@
 
 ol, ul {
     list-style: none;
+    -webkit-padding-start: 0px;
 }
 
-#container{
+.container{
     height:100%;
     position:relative;
     font-size:1.1em;
@@ -19,18 +20,38 @@ ol, ul {
     text-align:left;
 }
 
-#loginPanel p.loginInstruction{
+.loginPanel{
+    position:relative;
+    font-size:1.1em;
+    width:450px;
+    margin:auto;
+    margin-top:8%;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    background-color:#fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    padding: 45px;
+    color: rgba(0,0,0,0.87);
+}
+
+
+.loginPanel.prod h2{
+    height:57px;
+}
+
+.loginPanel p.loginInstruction{
     padding:2px 10px 2px 25px;
     margin-left:2px;
 }
 
-#loginPanel ul.loginInstruction li{
+.loginPanel ul.loginInstruction li{
     padding:10px 0;
 }
-#loginPanel ul.loginInstruction li:last-child {padding-bottom: 0;}
+.loginPanel ul.loginInstruction li:last-child {padding-bottom: 0;}
 
 {}
-#container {min-width: 0;}
+.container {min-width: 0;}
 .loginInstruction {}
 .loginInstruction label {display: none;}
 .loginInstruction input {font-size: 16px;}
@@ -57,18 +78,36 @@ ol, ul {
 }
 
 
-.loginInstruction #loginbutton {height: 38px; line-height: 38px; letter-spacing: .1rem; font-weight: 600; padding: 0 30px; text-align: center; white-space: no-wrap; box-sizing: border-box; border: 1px solid #bbb; font-family: "Roboto",sans-serif; -webkit-border-radius: 0px; border-radius: 0px;}
-.loginInstruction #loginbutton:hover {background-color: #1EAEDB; border-color: #1EAEDB;}
-#switch-depot {text-align: right; padding-top: 30px;}
+.loginInstruction loginbutton {height: 38px; line-height: 38px; letter-spacing: .1rem; font-weight: 600; padding: 0 30px; text-align: center; white-space: no-wrap; box-sizing: border-box; border: 1px solid #bbb; font-family: "Roboto",sans-serif; -webkit-border-radius: 0px; border-radius: 0px;}
+.loginInstruction loginbutton:hover {background-color: #1EAEDB; border-color: #1EAEDB;}
+.switch-depot {text-align: right; padding-top: 30px;}
 
 @media (max-width: 1024px) {
-#loginPanel {margin: 0;  box-shadow: none; width: auto;}
-.loginInstruction #loginbutton {display: block; float: none; width: 100%;}
-#footerLh {right: 30px; left: auto; bottom: 26px;}
-#termsmessage {margin-right: 30px; text-align: right;}
+.loginPanel {margin: 0;  box-shadow: none; width: auto;}
+.loginInstruction loginbutton {display: block; float: none; width: 100%;}
+.footerLh {right: 30px; left: auto; bottom: 26px;}
+.termsmessage {margin-right: 30px; text-align: right;}
 }
-
-.loginInstruction li.loginButtonContainer {text-align: right;}
+.loginbutton {
+    height: 38px;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    padding: 0 30px;
+    text-align: center;
+    white-space: no-wrap;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    font-family: "Roboto",sans-serif;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color: #1EAEDB;
+    border-color: #1EAEDB;
+    color: white;
+}
+.loginInstruction li.loginButtonContainer {
+    text-align: right;
+}
 
 input.button{
     min-width:80px;
