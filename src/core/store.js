@@ -29,7 +29,7 @@ class Store extends EventEmitter {
   }
 
   login(payload) {
-    this.state._id = payload;
+    this.state._id = payload._id;
   }
 
   getDriverId() {
@@ -41,6 +41,9 @@ class Store extends EventEmitter {
     // Do nothing until token is given on verify
   }
 
+  printError(payload) {
+    console.log(payload);
+  }
   updateDriver(payload) {
     this.state.driver = payload;
   }
@@ -81,7 +84,7 @@ _Store.dispatchToken = Dispatcher.register((payload) => {
     break;
 
   case Constants.API_ERRORS:
-    _Store._toImplement();
+    _Store.printError(payload.data);
     break;
 
   case Constants.LOGIN:

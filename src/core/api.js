@@ -6,12 +6,6 @@ import _ from "lodash";
 import metrics from "metrics";
 
 function testSuccess(response) {
-  if (response.type === "text/html") {
-    return false;
-  }
-  if (_.isPlainObject(response.body) && _.has(response.body, "success")) {
-    return response.body.succcess;
-  }
   return true;
 }
 

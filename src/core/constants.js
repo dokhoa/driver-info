@@ -18,7 +18,6 @@ let constants = {
 };
 
 if (env === "local") {
-  constants.API_URI = mock ? "http://localhost:3000" : "";
   constants.STATIC_URI = "https://devdepot.eroad.com/Portal";
 }
 

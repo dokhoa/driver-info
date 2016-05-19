@@ -20,10 +20,7 @@ class TokenValidation extends React.Component {
   }
   submitMobileNumber(mobileNumber) {
     Actions.getDriverId(mobileNumber).then(response => {
-      alert(response);
-      if(response.success == true) {
         window.location.href = '#/verify';
-      }
     });
   }
 

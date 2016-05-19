@@ -14,12 +14,14 @@ class TokenValidation extends React.Component {
   }
 
   verifyToken(token) {
-    driverId = Store.getDriverId();
+    let driverId = Store.getDriverId();
     if(driverId == null || driverId === undefined) {
       driverId = getParameterFromUrl(driverId);
     }
-    Actions.verify(driverId, token).then(response => {
-        console.log(response);
+    Actions.verify(driverId, Number(token)).then(response => {
+        Actions.getDriver(driverId).then(response => {
+          window.location.href = '#/driver';
+        });
     });
   }
   
