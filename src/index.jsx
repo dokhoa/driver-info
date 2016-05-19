@@ -5,7 +5,6 @@ import Authenticate from "./components/Authenticate/authenticate.jsx";
 import Header from "./components/header/header.jsx";
 import layout from "./components/layout.css";
 import DriverForm from "./components/forms/DriverForm.jsx";
-
 import Actions from "./core/actions";
 
 class App extends React.Component {
