@@ -11,12 +11,16 @@ class TokenValidation extends React.Component {
 
   constructor(props) {
     super(props);    
+    this.getParameterFromUrl = this.getParameterFromUrl.bind(this);
+    this.verifyToken = this.verifyToken.bind(this);
   }
 
   verifyToken(token) {
     let driverId = Store.getDriverId();
-    if(driverId == null || driverId === undefined) {
-      driverId = getParameterFromUrl("t");
+    
+    if(!driverId) {
+      driverId = this.getParameterFromUrl("t");
+      Actions.setDriverId(driverId);
     }
     Actions.verify(driverId, Number(token)).then(response => {
         Actions.getDriver(driverId).then(response => {
