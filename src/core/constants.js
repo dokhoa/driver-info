@@ -14,7 +14,8 @@ let constants = {
   LOGIN: "LOGIN",
   VERIFY: "VERIFY",
   GET_DRIVER: "GET_DRIVER",
-  UPDATE_DRIVER: "UPDATE_DRIVER"
+  UPDATE_DRIVER: "UPDATE_DRIVER",
+  SET_DRIVER_ID: "SET_DRIVER_ID"
 };
 
 if (env === "local") {

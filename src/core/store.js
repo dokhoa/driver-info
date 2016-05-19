@@ -32,6 +32,10 @@ class Store extends EventEmitter {
     this.state._id = payload._id;
   }
 
+  setDriverId(payload) {
+    this.state._id = payload;
+  }
+
   getDriverId() {
     return this.state._id;
   }
@@ -100,6 +104,10 @@ _Store.dispatchToken = Dispatcher.register((payload) => {
 
   case Constants.UPDATE_DRIVER:
     _Store.updateDriver(payload.data);
+    break;
+
+  case Constants.SET_DRIVER_ID:
+    _Store.setDriverId(payload.data);
     break;
 
   default:
