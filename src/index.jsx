@@ -37,8 +37,8 @@ render(
     <Route path="/" component={App}>
       <IndexRoute component={MobileInput}></IndexRoute>
       <Route path="verify" component={TokenValidation}></Route>
+      <Route path="verify/:t" component={TokenValidation}></Route>
       <Route path="driver" component={DriverInfo}></Route>
-      <Route path="driver/:driverId" component={DriverInfo}></Route>
       <Route path="success" component={Success}></Route>
     </Route>
     
