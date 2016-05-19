@@ -90,5 +90,28 @@ export default {
       });
 
     return deferred.promise;
+  },
+  getDriverId: (mobileNumber) => {
+    const data = {
+      type: Constants.LOGIN,
+      mobileNumber: mobileNumber
+    };
+    const deferred = Q.defer();
+    request
+      .post(`${Constants.API_URI}${Constants.ENDPOINT}`)
+      .accept("application/json")
+      .send(data)
+      .end((err, response) => {
+        if (err) {
+          return deferred.reject(err);
+        }
+        if (!testSuccess(response)) {
+          return deferred.reject(response);
+        }
+
+        return deferred.resolve(response.body);
+      });
+
+    return deferred.promise;
   }
 };

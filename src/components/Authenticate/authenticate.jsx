@@ -9,11 +9,6 @@ class Authenticate extends React.Component {
     super(props);
   }
   componentDidMount() {
-    Actions.get().then((payload) => {
-      console.log("Do things with the data you got");
-    }).fail((err) => {
-      console.log(err);
-    });
   }
   render() {
     return (

@@ -7,6 +7,7 @@ const CHANGE_EVENT = Constants.CHANGE;
 class Store extends EventEmitter {
 
   state = {
+    _id: ""
   };
 
   constructor() {
@@ -19,6 +20,14 @@ class Store extends EventEmitter {
 
   _toImplement() {
     console.log("Please implement this function");
+  }
+
+  login(payload) {
+    this.state._id = payload;
+  }
+
+  getDriverId() {
+    return this.state._id;
   }
 
   emitChange() {
@@ -58,6 +67,10 @@ _Store.dispatchToken = Dispatcher.register((payload) => {
 
   case Constants.API_ERRORS:
     _Store._toImplement();
+    break;
+
+  case Constants.LOGIN:
+    _Store.login(payload.data);
     break;
 
   default:
