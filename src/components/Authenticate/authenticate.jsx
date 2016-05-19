@@ -15,6 +15,10 @@ class Authenticate extends React.Component {
       console.log(err);
     });
   }
+  handleChange(e) {
+    const mobileNumber = e.target.value;
+    this.props.changeMobileNumber(mobileNumber);
+  }
   render() {
     return (
       <div className={styles.container}>
@@ -27,7 +31,7 @@ class Authenticate extends React.Component {
                       <form method="post" id="authenticateForm" action="">
                           <ul className={styles.loginInstruction}>
                               <li>
-                                  <input type="text" placeholder="Mobile Number" name="mobile" id="mobile" size="10" value=""/>
+                                  <input type="text" placeholder="Mobile Number" name="mobile" id="mobile" size="10" value={this.props.mobileNumber} onChange={this.handleChange.bind(this)} />
                               </li>
                                   <li className={styles.loginButtonContainer}><input id="submitButton" name="submit" className={styles.loginbutton} type="submit" value="SUBMIT" /></li>
                               </ul>
