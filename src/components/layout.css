@@ -1,8 +1,10 @@
+body {
+    display: block;
+    margin: 0px;
+}
 .wrapper {
   display: flex;
   flex-flow: row wrap;
-  padding: 20px;
-  max-width: 1280px;
   margin: 0 auto;
 }
 
