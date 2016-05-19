@@ -16,7 +16,7 @@ class TokenValidation extends React.Component {
   verifyToken(token) {
     let driverId = Store.getDriverId();
     if(driverId == null || driverId === undefined) {
-      driverId = getParameterFromUrl(driverId);
+      driverId = getParameterFromUrl("t");
     }
     Actions.verify(driverId, Number(token)).then(response => {
         Actions.getDriver(driverId).then(response => {
