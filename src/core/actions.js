@@ -81,5 +81,24 @@ export default {
       return deferred.reject(err);
     });
     return deferred.promise;
+  },
+  getDriverId: (mobileNumber) => {
+    const deferred = Q.defer();
+    API.getDriverId(mobileNumber).then((payload) => {
+      Dispatcher.dispatch({
+        type: Constants.LOGIN,
+        data: payload
+      });
+      return deferred.resolve(payload);
+    }, (err) => {
+      Dispatcher.dispatch({
+        type: Constants.API_ERRORS,
+        data: {
+          err: err
+        }
+      });
+      return deferred.reject(err);
+    });
+    return deferred.promise;
   }
 };

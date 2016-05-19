@@ -1,0 +1,21 @@
+@import url("../constants.css");
+@import url("../styles.css");
+
+.wrapper {
+  max-width: 300px;
+  max-height: 200px;
+  min-height: 80px;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.26);
+}
+
+.wrapper p {
+  font-size: 16px;
+  color: var(--color-font-secondary);
+}
+
+.actions {
+  float: right;
+}
