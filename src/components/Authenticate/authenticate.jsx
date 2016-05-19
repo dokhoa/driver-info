@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import styles from "./authenticate.css";
 import layout from "../layout.css";
 import Actions from "../../core/actions.js";
+import Store from "../../core/store.js";
 
 
 class Authenticate extends React.Component {
@@ -21,9 +22,7 @@ class Authenticate extends React.Component {
 
   handleSubmit(e) {
     const mobileNumber = this.state.mobileNumber;
-    Actions.getDriverId(mobileNumber).then(response => {
-        console.log(response);
-    });
+    this.props.action(mobileNumber);    
   }
   
   render() {
@@ -34,12 +33,12 @@ class Authenticate extends React.Component {
           <div id="wrapper">
               <div className={styles.content}>
                   <div className={styles.loginPanel}>
-                      <h2>Please input your mobile number</h2>                      
+                      <h2>{this.props.title}</h2>                      
                           <ul className={styles.loginInstruction}>
                           <li>
-                              <input type="text" placeholder="Mobile Number" name="mobile" id="mobile" size="10" value={this.state.mobileNumber} onChange={this.changeMobileNumber} />
+                              <input type="text" placeholder={this.props.placeHolder} name="mobile" id="mobile" size="10" value={this.state.mobileNumber} onChange={this.changeMobileNumber} />
                           </li>
-                              <li className={styles.loginButtonContainer}><input id="submitButton" className={styles.loginbutton} value="SUBMIT" onClick={this.handleSubmit}/></li>
+                              <li className={styles.loginButtonContainer}><input id="submitButton" className={styles.loginbutton} defaultValue="SUBMIT" readonly onClick={this.handleSubmit}/></li>
                           </ul>
                   </div>
               </div>

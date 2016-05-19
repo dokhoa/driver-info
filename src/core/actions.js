@@ -100,5 +100,65 @@ export default {
       return deferred.reject(err);
     });
     return deferred.promise;
+  },
+  verify: (_id, token) => {
+    const data = {
+      token: token
+    };
+    const deferred = Q.defer();
+    API.verify(_id, data).then((payload) => {
+      Dispatcher.dispatch({
+        type: Constants.VERIFY,
+        data: payload
+      });
+      return deferred.resolve(payload);
+    }, (err) => {
+      Dispatcher.dispatch({
+        type: Constants.API_ERRORS,
+        data: {
+          err: err
+        }
+      });
+      return deferred.reject(err);
+    });
+    return deferred.promise;
+  },
+  getDriver: (_id) => {
+    const deferred = Q.defer();
+    API.getDriver(_id).then((payload) => {
+      Dispatcher.dispatch({
+        type: Constants.GET_DRIVER,
+        data: payload
+      });
+      return deferred.resolve(payload);
+    }, (err) => {
+      Dispatcher.dispatch({
+        type: Constants.API_ERRORS,
+        data: {
+          err: err
+        }
+      });
+      return deferred.reject(err);
+    });
+    return deferred.promise;
+  },
+  updateDriver: (_id, data) => {
+    const deferred = Q.defer();
+    API.updateDriver(_id, data).then((payload) => {
+      Dispatcher.dispatch({
+        type: Constants.UPDATE_DRIVER,
+        data: payload
+      });
+      return deferred.resolve(payload);
+    }, (err) => {
+      Dispatcher.dispatch({
+        type: Constants.API_ERRORS,
+        data: {
+          err: err
+        }
+      });
+      return deferred.reject(err);
+    });
+    return deferred.promise;
   }
 };
