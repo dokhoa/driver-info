@@ -2,9 +2,9 @@ const env = window.location.hostname === "localhost" ? "local" : "depot";
 const mock = window.location.search.indexOf("api=mock") !== -1;
 
 let constants = {
-  API_URI: "/Portal/",
+  API_URI: "https://w5pomnapv8.execute-api.us-east-1.amazonaws.com",
   STATIC_URI: "/Portal",
-  ENDPOINT: "/",
+  ENDPOINT: "/prod/",
   CHANGE: "CHANGE",
   GET: "GET",
   POST: "POST",

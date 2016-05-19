@@ -1,0 +1,242 @@
+@import url("../constants.css");
+@import url("../styles.css");
+@import url("../layout.css");
+@import url("../input.css");
+
+:root {
+  --padding-horizontal: 30px;
+}
+
+.driver-form-wrapper {
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  display: inline-block;
+  color: var(--color-font-primary);
+  height: 100%;
+}
+
+.driver-form-wrapper label {
+  text-transform: capitalize;
+}
+
+.header {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  z-index: 20;
+}
+
+.content {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.form-content {
+  box-shadow: 0 -2px 5px 0 rgba(0, 0, 0, 0.06);
+  padding: 0 0 48px 0;
+  z-index: 10;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.content h3 {
+  font-weight: 400;
+  margin: 0;
+  padding: 0 0 0 var(--padding-horizontal);
+  line-height: 56px;
+  text-transform: capitalize;
+}
+
+.footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  padding: 10px 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.driver-form-wrapper h1 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-start;
+  align-content: space-around;
+  padding-left: var(--padding-horizontal);
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.licence-input {
+  composes: row;
+  padding: 28px 0 0 0;
+}
+
+.required label:after {
+  content: " *";
+}
+
+.field {
+  margin: 5px 15px 25px 0;
+}
+
+.helper {
+  color: var(--color-font-primary);
+  font-size: 13px;
+  padding-left: 20px;
+}
+
+.remove-licence {
+  float: left;
+  align-self: flex-end;
+  padding: 0;
+  margin: 0 0 26px 0px;
+}
+
+.licence-primary-menu {
+  padding: 30px 0 0 var(--padding-horizontal);
+}
+
+
+.autosuggest-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestions-container {
+  position: relative;
+  list-style-type: none;
+  border: 1px solid var(--color-primary);
+  border-top: 2px solid var(--color-primary);
+  background-color: var(--color-white);
+  z-index: 2;
+  padding: 0px;
+  margin: -2px 0 0 0;
+  order: 3;
+}
+
+.autosuggest-container input {
+  order: 2;
+}
+.autosuggest-container label {
+  order: 3;
+}
+.autosuggest-container .bar {
+  order: 4;
+}
+
+.autosuggest-container .field-error {
+  order: 1;
+}
+.suggestion {
+  cursor: pointer;
+}
+
+.suggestion:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+
+.error-messages {
+  background: var(--color-grey-lighter);
+  color: var(--color-red);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 20px;
+}
+
+.error-messages ul {
+  padding: 0 20px;
+}
+
+.error-messages li {
+  list-style: square;
+}
+
+.field-error {
+  color: var(--color-red);
+  font-size: 10px;
+  order: 4;
+  padding-bottom: 10px;
+  position: absolute;
+}
+
+.field-error ~ .bar {
+  position: relative;
+  display: block;
+  width: 205px;
+  background: var(--color-red);
+  height: 2px;
+  transition: 0.2s ease all;
+  top: -2px;
+  order: 3;
+}
+
+.field-error ~ input {
+  order: 1;
+}
+.field-error ~ .input-text:focus ~.bar:before, .field-error ~ .input-text:focus ~.bar:after {
+  width: 0;
+}
+
+.field-error ~ label {
+  color: var(--color-red);
+  order: 2;
+}
+
+.field-error ~.input-text:focus ~ label {
+  color: var(--color-red);
+}
+
+.add-licence {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-left: 15px;
+  height: 58px;
+  color: var(--color-primary);
+}
+
+.licence-form {
+  margin-top: 30px;
+}
+
+.licence-form-header .add-licence i {
+  font-size: 30px;
+  color: var(--color-primary);
+}
+
+.licence-form-header .add-licence i:hover {
+  color: var(--color-primary-lighter);
+}
+
+.licence-form-header {
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+}
+
+.message {
+  color: var(--color-font-secondary);
+  padding: 18px var(--padding-horizontal) 0 var(--padding-horizontal);
+  display: inline-block;
+}
