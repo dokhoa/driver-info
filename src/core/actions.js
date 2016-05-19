@@ -160,5 +160,11 @@ export default {
       return deferred.reject(err);
     });
     return deferred.promise;
+  },
+  setDriverId: (_id) => {
+    Dispatcher.dispatch({
+      type: Constants.SET_DRIVER_ID,
+      data: _id
+    });
   }
 };
