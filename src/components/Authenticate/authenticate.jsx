@@ -4,16 +4,28 @@ import styles from "./authenticate.css";
 import layout from "../layout.css";
 import Actions from "../../core/actions.js";
 
+
 class Authenticate extends React.Component {
+
   constructor(props) {
     super(props);
+    this.state = {
+      mobileNumber: "",
+    };
+    this.changeMobileNumber = this.changeMobileNumber.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {
+  changeMobileNumber(e) {
+    this.setState({mobileNumber : e.target.value});
   }
-  handleChange(e) {
-    const mobileNumber = e.target.value;
-    this.props.changeMobileNumber(mobileNumber);
+
+  handleSubmit(e) {
+    const mobileNumber = this.state.mobileNumber;
+    Actions.getDriverId(mobileNumber).then(response => {
+        console.log(response);
+    });
   }
+  
   render() {
     return (
       <div className={styles.container}>
@@ -22,15 +34,13 @@ class Authenticate extends React.Component {
           <div id="wrapper">
               <div className={styles.content}>
                   <div className={styles.loginPanel}>
-                      <h2>Please input your mobile number</h2>
-                      <form method="post" id="authenticateForm" action="">
+                      <h2>Please input your mobile number</h2>                      
                           <ul className={styles.loginInstruction}>
-                              <li>
-                                  <input type="text" placeholder="Mobile Number" name="mobile" id="mobile" size="10" value={this.props.mobileNumber} onChange={this.handleChange.bind(this)} />
-                              </li>
-                                  <li className={styles.loginButtonContainer}><input id="submitButton" name="submit" className={styles.loginbutton} type="submit" value="SUBMIT" /></li>
-                              </ul>
-                      </form>
+                          <li>
+                              <input type="text" placeholder="Mobile Number" name="mobile" id="mobile" size="10" value={this.state.mobileNumber} onChange={this.changeMobileNumber} />
+                          </li>
+                              <li className={styles.loginButtonContainer}><input id="submitButton" className={styles.loginbutton} value="SUBMIT" onClick={this.handleSubmit}/></li>
+                          </ul>
                   </div>
               </div>
           </div>

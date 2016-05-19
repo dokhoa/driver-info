@@ -10,14 +10,16 @@ import Actions from "./core/actions";
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
-  }
+    super();    
+  }  
   render() {
     return (
 
       <div className={layout.wrapper}>
-        <Header />
+      <Header />
         <Authenticate />
+        
+        
       </div>
     );
   }
