@@ -36,7 +36,7 @@ gulp.task("publish", function() {
   var headers = {
     "Cache-Control": "max-age=0, no-transform, public"
   };
-  return gulp.src("./dist/*")
+  return gulp.src("./dist/**/*")
     .pipe(publisher.publish(headers))
     .pipe(awspublish.reporter());
 });

@@ -38,7 +38,7 @@ class Authenticate extends React.Component {
                           <li>
                               <input type="text" placeholder={this.props.placeHolder} name="mobile" id="mobile" size="10" value={this.state.mobileNumber} onChange={this.changeMobileNumber} />
                           </li>
-                              <li className={styles.loginButtonContainer}><input id="submitButton" className={styles.loginbutton} defaultValue="SUBMIT" readonly onClick={this.handleSubmit}/></li>
+                              <li className={styles.loginButtonContainer}><input id="submitButton" className={styles.loginbutton} defaultValue="SUBMIT" onClick={this.handleSubmit}/></li>
                           </ul>
                   </div>
               </div>
