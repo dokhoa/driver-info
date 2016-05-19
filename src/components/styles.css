@@ -1,0 +1,125 @@
+@import url('./constants.css');
+
+body {
+  background: var(--color-background);
+  font-family: Roboto;
+  color: var(--color-font-primary);
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+body.noscroll {
+  overflow: hidden;
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.06);
+  border-radius: 5px;
+}
+
+.title {
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title .item {
+  padding: 0 24px;
+}
+
+.title .item h2 {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.title .item i {
+  line-height: 56px;
+}
+
+.title .spacer {
+  flex: 1;
+}
+
+.list-wrapper {
+  min-height: 50px;
+  max-height: 400px;
+  overflow: auto;
+  padding: 0;
+}
+
+.list-item {
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  position: relative;
+  min-height: 56px;
+}
+
+.list-item:last-of-type {
+  border-bottom: 0;
+}
+
+.list-icon {
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.list-content {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-content h4 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 13px;
+  padding-bottom: 6px;
+  color: var(--color-font-primary);
+}
+
+.list-content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--color-font-secondary);
+}
+
+.no-results {
+  text-align: center;
+  flex: 1;
+  line-height: 56px;
+  color: var(--color-font-secondary);
+  font-size: 12px;
+}
+
+.button {
+  background: transparent;
+  color: var(--color-primary);
+  border: none;
+  padding: 10px;
+  position: relative;
+  transition: box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button:active, .button:hover {
+  border: none;
+  outline: none;
+  color: var(--color-primary-dark);
+}
+
+.button:focus {
+  border: none;
+  outline: none;
+}
+
+.button.secondary {
+  background: var(--color-white);
+  color: var(--color-black);
+}

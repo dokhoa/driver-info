@@ -1,0 +1,146 @@
+@import url("./constants.css");
+
+.field {
+  position: relative;
+  margin: 20px 0;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  color: var(--color-font-secondary);
+  font-size: 15px;
+  line-height: 26px;
+}
+
+.input-text {
+  font-size: 15px;
+  line-height: 26px;
+  display:block;
+  border: none;
+  border-bottom: 1px solid var(--color-font-secondary);
+  background: transparent;
+  width: 200px;
+}
+
+.input-text:focus {
+  outline: none;
+}
+
+.input-text ~ label {
+  position: absolute;
+  pointer-events: none;
+  top: 0px;
+  transition: 0.2s ease all;
+  left: 0;
+}
+
+.input-text:focus ~ label, .used .input-text ~ label {
+  top: -10px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.input-text:focus ~label {
+  color: var(--color-primary);
+}
+
+.input-text ~ .bar {
+  display: block;
+  left: 0;
+}
+
+.input-text ~ .bar:before, .input-text ~ .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  margin-top: -2px;
+  position: absolute;
+  background: var(--color-primary);
+  transition: 0.2s ease all;
+}
+
+.input-text ~ .bar:before {
+  left: 50%;
+}
+
+.input-text ~ .bar:after {
+  right: 50%;
+}
+
+.input-text:focus ~ .bar:before, .input-text:focus ~ .bar:after {
+  width: 50%;
+}
+
+.input-switch ~ label {
+  display: flex;
+  order: 1;
+  align-content: center;
+  position: relative;
+  margin-top: 9px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;
+  padding-right: 3em;
+}
+
+.input-switch ~ label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  border-radius: 1em;
+  background-color: var(--color-grey-dark);
+  width: 2.2em;
+  height: 1em;
+  align-self: flex-end;
+  order: 2;
+  transition: all 0.2s;
+  right: 0;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.input-switch ~ label::after {
+  content: "";
+  border-radius: 0.7em;
+  position: absolute;
+  display: inline-block;
+  background-color: var(--color-grey-lightest);
+  width: 1.4em;
+  height: 1.4em;
+  order: 3;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  right: 1em;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.26);
+}
+
+.input-switch {
+  display: none;
+}
+
+.input-switch:checked ~ label::before {
+  background-color: var(--color-primary-lighter);
+}
+
+.input-switch:checked ~ label::after {
+  background-color: var(--color-primary);
+  right: 0;
+}
+
+
+.input-menu {
+  composes: input-text;
+  position: relative;
+}

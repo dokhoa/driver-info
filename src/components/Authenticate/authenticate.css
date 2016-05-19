@@ -1,0 +1,83 @@
+@import url('../constants.css');
+
+ol, ul {
+    list-style: none;
+}
+
+#container{
+    height:100%;
+    position:relative;
+    font-size:1.1em;
+    line-height:1.4em;
+    width:100%;
+    min-width:980px;
+    max-height:1050px;
+    min-height:600px;
+    max-width:2000px;
+    overflow:hidden;
+    margin: 0;
+    text-align:left;
+}
+
+#loginPanel p.loginInstruction{
+    padding:2px 10px 2px 25px;
+    margin-left:2px;
+}
+
+#loginPanel ul.loginInstruction li{
+    padding:10px 0;
+}
+#loginPanel ul.loginInstruction li:last-child {padding-bottom: 0;}
+
+{}
+#container {min-width: 0;}
+.loginInstruction {}
+.loginInstruction label {display: none;}
+.loginInstruction input {font-size: 16px;}
+.loginInstruction #remembermeWrapper label {display: block; font-size: 16px;}
+.loginInstruction #remembermeWrapper input[type="checkbox"] {width: 17px; height: 17px; margin-right: 5px;}
+.loginInstruction li.loginButtonContainer {text-align: right;}
+
+.loginInstruction input[type="text"],
+.loginInstruction input[type="password"] {
+    padding: 0 0 0 10px;
+    width: 100%;
+    height: 50px;
+    border: solid 1px #ddd;
+    background-color: #fcfcfc;
+    box-sizing: border-box;
+    font-family: "Roboto",sans-serif;
+    outline: none;
+    margin: 0 0 10px 0;
+}
+
+.loginInstruction input:focus {
+    background-color: #fff;
+    border: 1px solid #258cd0;
+}
+
+
+.loginInstruction #loginbutton {height: 38px; line-height: 38px; letter-spacing: .1rem; font-weight: 600; padding: 0 30px; text-align: center; white-space: no-wrap; box-sizing: border-box; border: 1px solid #bbb; font-family: "Roboto",sans-serif; -webkit-border-radius: 0px; border-radius: 0px;}
+.loginInstruction #loginbutton:hover {background-color: #1EAEDB; border-color: #1EAEDB;}
+#switch-depot {text-align: right; padding-top: 30px;}
+
+@media (max-width: 1024px) {
+#loginPanel {margin: 0;  box-shadow: none; width: auto;}
+.loginInstruction #loginbutton {display: block; float: none; width: 100%;}
+#footerLh {right: 30px; left: auto; bottom: 26px;}
+#termsmessage {margin-right: 30px; text-align: right;}
+}
+
+.loginInstruction li.loginButtonContainer {text-align: right;}
+
+input.button{
+    min-width:80px;
+    border:solid 1px #CCCCCC;
+    padding:5px 9px 5px 8px;
+    height:30px;
+    overflow: visible;
+    -moz-border-radius:  6px 6px 6px 6px;
+    -webkit-border-radius:  6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+    cursor: pointer;
+}

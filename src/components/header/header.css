@@ -1,0 +1,47 @@
+@import url('../constants.css');
+
+.header {
+    position: relative;
+    margin:0;
+    background-color: #ee3124;
+    height:64px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.header .logo {
+    width: 50px;
+    padding: 7px;
+    margin-left:4px;
+}
+
+.header-right {
+    margin: 0;
+    padding: 0;
+    float: right;
+    list-style: none;
+    height: 64px;
+}
+
+.header-right li {
+    float: left;
+    color: #fff !important;
+    border-right: 1px solid #E41F11;
+    cursor: pointer;
+    position: relative;
+}
+
+.header-right li a {
+    color: #fff !important;
+}
+
+.header-right li a i {
+    padding: 17px 17px 22px 17px;
+}
+
+.header-right li:hover {
+    background-color: #E41F11;
+}
+
+.header-right li:last-child {
+    border-right: 0;
+}
