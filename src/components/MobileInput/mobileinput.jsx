@@ -5,28 +5,31 @@ import Actions from "../../core/actions.js";
 import Store from "../../core/store.js";
 import Authenticate from "../Authenticate/authenticate.jsx";
 
-
-
 class TokenValidation extends React.Component {
+  state = {
+    errors: ""
+  }
 
   constructor(props) {
-    super(props);    
+    super(props);
+    this.submitMobileNumber = this.submitMobileNumber.bind(this);
   }
 
-  verifyToken(token) {    
-    Actions.verify(Store.getDriverId(), token).then(response => {
-        console.log(response);
-    });
-  }
   submitMobileNumber(mobileNumber) {
     Actions.getDriverId(mobileNumber).then(response => {
-        window.location.href = '#/verify';
+      if (response !== "not found") {
+        window.location.href = "#/verify";
+      } else {
+        this.setState({
+          errors: "Not found"
+        });
+      }
     });
   }
 
   render() {
     return (
-      <Authenticate title="Please input Your Mobile Number" placeHolder="Mobile Number" action={this.submitMobileNumber}/>
+      <Authenticate title="Please input Your Mobile Number" placeHolder="Mobile Number" action={this.submitMobileNumber} errors={this.state.errors} />
     );
   }
 }

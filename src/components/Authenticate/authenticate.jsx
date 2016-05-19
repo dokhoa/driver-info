@@ -7,7 +7,10 @@ import Store from "../../core/store.js";
 
 
 class Authenticate extends React.Component {
-
+  static propTypes = {
+    title: React.PropTypes.string.isRequired,
+    errors: React.PropTypes.string.isRequired
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +36,14 @@ class Authenticate extends React.Component {
           <div id="wrapper">
               <div className={styles.content}>
                   <div className={styles.loginPanel}>
-                      <h2>{this.props.title}</h2>                      
+                      <h2>{this.props.title}</h2>
+                          {
+                            this.props.errors ? (
+                            <p className={styles.errors} >
+                              {this.props.errors}
+                            </p>
+                            ) : null
+                          }
                           <ul className={styles.loginInstruction}>
                           <li>
                               <input type="text" placeholder={this.props.placeHolder} name="mobile" id="mobile" size="10" value={this.state.mobileNumber} onChange={this.changeMobileNumber} />
