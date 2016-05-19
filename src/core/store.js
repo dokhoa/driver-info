@@ -7,7 +7,9 @@ const CHANGE_EVENT = Constants.CHANGE;
 class Store extends EventEmitter {
 
   state = {
-    _id: ""
+    _id: "",
+    session_token: "",
+    driver: {}
   };
 
   constructor() {
@@ -16,6 +18,10 @@ class Store extends EventEmitter {
 
   getState() {
     return this.state;
+  }
+
+  getDriver() {
+    return this.state.driver;
   }
 
   _toImplement() {
@@ -28,6 +34,15 @@ class Store extends EventEmitter {
 
   getDriverId() {
     return this.state._id;
+  }
+
+  verify(payload) {
+    // this.state.session_token = payload;
+    // Do nothing until token is given on verify
+  }
+
+  updateDriver(payload) {
+    this.state.driver = payload;
   }
 
   emitChange() {
@@ -71,6 +86,17 @@ _Store.dispatchToken = Dispatcher.register((payload) => {
 
   case Constants.LOGIN:
     _Store.login(payload.data);
+    break;
+
+  case Constants.VERIFY:
+    _Store.verify(payload.data);
+    break;
+  case Constants.GET_DRIVER:
+    _Store.updateDriver(payload.data);
+    break;
+
+  case Constants.UPDATE_DRIVER:
+    _Store.updateDriver(payload.data);
     break;
 
   default:

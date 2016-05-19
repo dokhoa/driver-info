@@ -113,5 +113,61 @@ export default {
       });
 
     return deferred.promise;
+  },
+  verify: (_id, data) => {
+    const deferred = Q.defer();
+    request
+      .put(`${Constants.API_URI}${Constants.ENDPOINT}${_id}?verify=true`)
+      .accept("application/json")
+      .send(data)
+      .end((err, response) => {
+        if (err) {
+          return deferred.reject(err);
+        }
+        if (!testSuccess(response)) {
+          return deferred.reject(response);
+        }
+
+        return deferred.resolve(response.body);
+      });
+
+    return deferred.promise;
+  },
+  getDriver: (_id) => {
+    const deferred = Q.defer();
+    request
+      .get(`${Constants.API_URI}${Constants.ENDPOINT}${_id}`)
+      .accept("application/json")
+      .end((err, response) => {
+        if (err) {
+          return deferred.reject(err);
+        }
+        if (!testSuccess(response)) {
+          return deferred.reject(response);
+        }
+
+        return deferred.resolve(response.body);
+      });
+
+    return deferred.promise;
+  },
+  updateDriver: (_id, data) => {
+    const deferred = Q.defer();
+    request
+      .put(`${Constants.API_URI}${Constants.ENDPOINT}${_id}`)
+      .accept("application/json")
+      .send(data)
+      .end((err, response) => {
+        if (err) {
+          return deferred.reject(err);
+        }
+        if (!testSuccess(response)) {
+          return deferred.reject(response);
+        }
+
+        return deferred.resolve(response.body);
+      });
+
+    return deferred.promise;
   }
 };

@@ -34,7 +34,7 @@ class DriverFormContainer extends React.Component {
     driver: Store.getDriverForm(),
     licences: Store.getLicencesForm(),
     errors: Store.getErrors(),
-    is_creating: !this.props.data.id,
+    is_creating: false,
     is_loading: this.props.data.id
   }
 
