@@ -35,11 +35,10 @@ export default App;
 render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={TokenValidation}></IndexRoute>
-      <Route path="mobile" component={MobileInput}></Route>
+      <IndexRoute component={MobileInput}></IndexRoute>
+      <Route path="verify:t" component={TokenValidation}></Route>
       <Route path="verify" component={TokenValidation}></Route>
-      <Route path="/:t" component={TokenValidation}></Route>
-      <Route path="driver" component={DriverInfo}></Route>
+      <Route path="driver" component={DriverInfo}></Route>      
       <Route path="success" component={Success}></Route>
     </Route>
     
