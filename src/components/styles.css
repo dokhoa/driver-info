@@ -120,6 +120,5 @@ body.noscroll {
 }
 
 .button.secondary {
-  background: var(--color-white);
-  color: var(--color-black);
+  color: var(--color-font-secondary);
 }

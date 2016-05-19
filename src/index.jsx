@@ -8,6 +8,7 @@ import layout from "./components/layout.css";
 import DriverForm from "./components/forms/DriverForm.jsx";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
 import Actions from "./core/actions";
+import Store from "./core/store";
 
 class App extends React.Component {
   constructor(props) {
