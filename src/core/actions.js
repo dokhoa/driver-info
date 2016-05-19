@@ -103,7 +103,7 @@ export default {
   },
   verify: (_id, token) => {
     const data = {
-      token: token
+      code: token
     };
     const deferred = Q.defer();
     API.verify(_id, data).then((payload) => {
