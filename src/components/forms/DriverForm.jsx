@@ -8,7 +8,7 @@ import Store from "../../core/store";
 class DriverForm extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
-    _unmountSelf: React.PropTypes.func
+    _unmountSelf: React.PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -16,20 +16,15 @@ class DriverForm extends React.Component {
     _unmountSelf: null
   }
 
-  state = {
-  }
-
   constructor(props) {
     super(props);
-    // this._unmountSelf = this._unmountSelf.bind(this);
   }
 
   render() {
     return (
         <div className = {styles["driver-form-wrapper"]}>
           <DriverFormContainer {...this.props}
-            _addDriver={Actions.addDriver}
-            _updateDriver={Actions.updateDriver}
+            _updateDriver={Actions.updateDriver.bind(null, Store.getDriverId())}
             licences={[]}
           />
         </div>

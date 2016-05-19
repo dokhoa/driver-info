@@ -6,19 +6,19 @@ import Header from "./components/header/header.jsx";
 import layout from "./components/layout.css";
 import DriverForm from "./components/forms/DriverForm.jsx";
 import Actions from "./core/actions";
+import Store from "./core/store";
 
 class App extends React.Component {
   constructor(props) {
-    super();    
-  }  
+    super();
+  }
   render() {
     return (
 
       <div className={layout.wrapper}>
       <Header />
         <Authenticate />
-        
-        
+        <DriverForm data={Store.getDriver()} _unmountSelf={() => {}} />
       </div>
     );
   }

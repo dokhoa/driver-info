@@ -20,6 +20,10 @@ class Store extends EventEmitter {
     return this.state;
   }
 
+  getDriver() {
+    return this.state.driver;
+  }
+
   _toImplement() {
     console.log("Please implement this function");
   }
