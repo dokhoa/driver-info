@@ -9,10 +9,13 @@ import DriverForm from "../forms/DriverForm.jsx";
 
 class DriverInfo extends React.Component {
 
+  goToSuccessPage() {
+    window.location.href = '#/success';
+  }
 
   render() {
     return (
-      <DriverForm data={Store.getDriver()} _unmountSelf={() => {}} />
+      <DriverForm data={Store.getDriver()} _unmountSelf={this.goToSuccessPage} />
     );
   }
 }
