@@ -72,12 +72,6 @@ ol, ul {
     margin: 0 0 10px 0;
 }
 
-.loginInstruction input:focus {
-    background-color: #fff;
-    border: 1px solid #258cd0;
-}
-
-
 .loginInstruction loginbutton {height: 38px; line-height: 38px; letter-spacing: .1rem; font-weight: 600; padding: 0 30px; text-align: center; white-space: no-wrap; box-sizing: border-box; border: 1px solid #bbb; font-family: "Roboto",sans-serif; -webkit-border-radius: 0px; border-radius: 0px;}
 .loginInstruction loginbutton:hover {background-color: #1EAEDB; border-color: #1EAEDB;}
 .switch-depot {text-align: right; padding-top: 30px;}
@@ -104,6 +98,13 @@ ol, ul {
     background-color: #1EAEDB;
     border-color: #1EAEDB;
     color: white;
+    cursor: pointer;  
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;  
 }
 .loginInstruction li.loginButtonContainer {
     text-align: right;
@@ -119,4 +120,9 @@ input.button{
     -webkit-border-radius:  6px 6px 6px 6px;
     border-radius: 6px 6px 6px 6px;
     cursor: pointer;
+}
+
+.errors {
+    color: var(--color-red);
+    text-decoration: none;
 }
