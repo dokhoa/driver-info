@@ -7,7 +7,8 @@ import Authenticate from "../Authenticate/authenticate.jsx";
 
 class TokenValidation extends React.Component {
   state = {
-    errors: ""
+    errors: "",
+    submitText: "Submit"
   }
 
   constructor(props) {
@@ -17,23 +18,27 @@ class TokenValidation extends React.Component {
   }
 
   verifyToken(token) {
+    this.setState({
+      submitText: "Submitting..."
+    });
     let driverId = Store.getDriverId();
-
     if (!driverId) {
       driverId = this.getParameterFromUrl("t");
       Actions.setDriverId(driverId);
     }
     Actions.verify(driverId, Number(token)).then(response => {
-      console.log(response);
       if (response.success) {
         Actions.getDriver(driverId).then(resp => {
-          window.location.href = '#/driver';
+          window.location.href = "#/driver";
         });
       } else {
         this.setState({
           errors: response.message
         });
       }
+      this.setState({
+        submitText: "Submit"
+      });
     });
   }
 
@@ -46,7 +51,7 @@ class TokenValidation extends React.Component {
   }
   render() {
     return (
-      <Authenticate title="Please input token" placeHolder="Token Number" action={this.verifyToken} errors={this.state.errors} />
+      <Authenticate title="Please input token" placeHolder="Token Number" submitText={this.state.submitText} action={this.verifyToken} errors={this.state.errors} />
     );
   }
 }

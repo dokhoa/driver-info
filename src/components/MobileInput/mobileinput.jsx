@@ -7,7 +7,8 @@ import Authenticate from "../Authenticate/authenticate.jsx";
 
 class TokenValidation extends React.Component {
   state = {
-    errors: ""
+    errors: "",
+    submitText: "Submit"
   }
 
   constructor(props) {
@@ -16,6 +17,9 @@ class TokenValidation extends React.Component {
   }
 
   submitMobileNumber(mobileNumber) {
+    this.setState({
+      submitText: "Submitting..."
+    });
     Actions.getDriverId(mobileNumber).then(response => {
       if (response !== "not found") {
         window.location.href = "#/verify";
@@ -24,12 +28,21 @@ class TokenValidation extends React.Component {
           errors: "Not found"
         });
       }
+      this.setState({
+        submitText: "Submit"
+      });
     });
   }
 
   render() {
     return (
-      <Authenticate title="Please input Your Mobile Number" placeHolder="Mobile Number" action={this.submitMobileNumber} errors={this.state.errors} />
+      <Authenticate
+        title="Please input Your Mobile Number"
+        placeHolder="Mobile Number"
+        submitText={this.state.submitText}
+        action={this.submitMobileNumber}
+        errors={this.state.errors}
+      />
     );
   }
 }

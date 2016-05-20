@@ -88,7 +88,7 @@ class Field extends React.Component {
     let field = this.props.field;
 
     if (field.showFor && field.showFor.country) {
-      if (field.showFor.country !== "NZ") {
+      if (field.showFor.country !== "New Zealand") {
         return null;
       }
     }

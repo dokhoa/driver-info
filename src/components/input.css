@@ -3,7 +3,7 @@
 .field {
   position: relative;
   margin: 20px 0;
-  width: 200px;
+  width: 220px;
   display: flex;
   flex-direction: column;
 }

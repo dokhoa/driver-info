@@ -35,7 +35,8 @@ class DriverFormContainer extends React.Component {
     licences: Store.getLicencesForm(),
     errors: Store.getErrors(),
     is_creating: false,
-    is_loading: this.props.data.id
+    is_loading: this.props.data.id,
+    confirm_text: "Update"
   }
 
   constructor(props) {
@@ -184,8 +185,14 @@ class DriverFormContainer extends React.Component {
         scrollTop();
       });
     } else {
+      this.setState({
+        confirm_text: "Updating..."
+      });
       this.props._updateDriver(driver).then((payload) => {
         this._unmountSelf();
+        this.setState({
+          confirm_text: "Updated"
+        });
       }).fail((payload) => {
         parseError(payload);
         scrollTop();
@@ -353,14 +360,9 @@ class DriverFormContainer extends React.Component {
             </div>
               <div className={styles.footer}>
                 <button
-                  className={`${stylesheet.button} ${stylesheet.secondary}`}
-                  type="button" onClick={this._unmountSelf}>
-                    Cancel
-                </button>
-                <button
                   id="submitForm"
                   className={stylesheet.button}
-                  onClick={this._onSubmit}>{this.state.is_creating ? "Add" : "Update"}
+                  onClick={this._onSubmit}>{this.state.confirm_text}
                 </button>
               </div>
         </div>
